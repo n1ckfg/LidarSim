@@ -63,11 +63,13 @@ void ALidar::ReadPoints(const float DeltaTime)
 
   if (PointsToScanWithOneLaser <= 0)
   {
+    /*
     UE_LOG(
         LogCarla,
         Warning,
         TEXT("%s: no points requested this frame, try increasing the number of points per second."),
         *GetName());
+    */
     return;
   }
 

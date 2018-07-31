@@ -9,6 +9,7 @@
 
 #include "LidarSim/Actor/ActorBlueprintFunctionLibrary.h"
 #include "LidarSim/Sensor/SceneCaptureCamera.h"
+#include "Kismet/GameplayStatics.h"
 
 TArray<FActorDefinition> ASensorFactory::GetDefinitions()
 {

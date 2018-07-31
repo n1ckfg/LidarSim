@@ -47,7 +47,7 @@ protected:
     if (SensorDataSink.IsValid()) {
       SensorDataSink->Write(SensorData);
     } else {
-      UE_LOG(LogCarla, Warning, TEXT("Sensor %d has no data sink."), Id);
+      //UE_LOG(LogCarla, Warning, TEXT("Sensor %d has no data sink."), Id);
     }
   }
 

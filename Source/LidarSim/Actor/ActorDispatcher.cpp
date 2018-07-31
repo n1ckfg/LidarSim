@@ -21,7 +21,7 @@ void FActorDispatcher::Bind(FActorDefinition Definition, SpawnFunctionType Funct
   }
   else
   {
-    UE_LOG(LogCarla, Warning, TEXT("Invalid definition '%s' ignored"), *Definition.Id);
+    //UE_LOG(LogCarla, Warning, TEXT("Invalid definition '%s' ignored"), *Definition.Id);
   }
 }
 
@@ -41,19 +41,19 @@ TPair<EActorSpawnResultStatus, FActorView> FActorDispatcher::SpawnActor(
 {
   if ((Description.UId == 0u) || (Description.UId > static_cast<uint32>(SpawnFunctions.Num())))
   {
-    UE_LOG(LogCarla, Error, TEXT("Invalid ActorDescription '%s' (UId=%d)"), *Description.Id, Description.UId);
+    //UE_LOG(LogCarla, Error, TEXT("Invalid ActorDescription '%s' (UId=%d)"), *Description.Id, Description.UId);
     return MakeTuple(EActorSpawnResultStatus::InvalidDescription, FActorView());
   }
 
-  UE_LOG(LogCarla, Log, TEXT("Spawning actor '%s'"), *Description.Id);
+  //UE_LOG(LogCarla, Log, TEXT("Spawning actor '%s'"), *Description.Id);
 
   Description.Class = Classes[Description.UId - 1];
   auto Result = SpawnFunctions[Description.UId - 1](Transform, Description);
 
   if ((Result.Status == EActorSpawnResultStatus::Success) && (Result.Actor == nullptr))
   {
-    UE_LOG(LogCarla, Warning, TEXT("ActorSpawnResult: Trying to spawn '%s'"), *Description.Id);
-    UE_LOG(LogCarla, Warning, TEXT("ActorSpawnResult: Reported success but did not return an actor"));
+    //UE_LOG(LogCarla, Warning, TEXT("ActorSpawnResult: Trying to spawn '%s'"), *Description.Id);
+    //UE_LOG(LogCarla, Warning, TEXT("ActorSpawnResult: Reported success but did not return an actor"));
     Result.Status = EActorSpawnResultStatus::UnknownError;
   }
 
@@ -61,7 +61,7 @@ TPair<EActorSpawnResultStatus, FActorView> FActorDispatcher::SpawnActor(
 
   if (!View.IsValid())
   {
-    UE_LOG(LogCarla, Warning, TEXT("Failed to spawn actor '%s'"), *Description.Id);
+    //UE_LOG(LogCarla, Warning, TEXT("Failed to spawn actor '%s'"), *Description.Id);
     check(Result.Status != EActorSpawnResultStatus::Success);
   }
 

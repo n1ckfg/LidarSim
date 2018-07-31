@@ -93,7 +93,7 @@ static USensorDescription *MakeSensor(
   } else if (SensorType == TEXT("LIDAR_RAY_CAST")) {
     return MakeSensor<ULidarDescription>(Parent, SensorName, SensorType);
   } else {
-    UE_LOG(LogCarla, Error, TEXT("Invalid sensor type '%s'"), *SensorType);
+    //UE_LOG(LogCarla, Error, TEXT("Invalid sensor type '%s'"), *SensorType);
     return nullptr;
   }
 }
@@ -211,7 +211,7 @@ void UCarlaSettings::LoadSettings()
 
 void UCarlaSettings::LoadSettingsFromString(const FString &INIFileContents)
 {
-  UE_LOG(LogCarla, Log, TEXT("Loading CARLA settings from string"));
+  //UE_LOG(LogCarla, Log, TEXT("Loading CARLA settings from string"));
   ResetSensorDescriptions();
   FIniFile ConfigFile;
   ConfigFile.ProcessInputFileContents(INIFileContents);
@@ -222,61 +222,62 @@ void UCarlaSettings::LoadSettingsFromString(const FString &INIFileContents)
 
 void UCarlaSettings::LoadWeatherDescriptions()
 {
-  WeatherDescriptions.Empty();
-  ADynamicWeather::LoadWeatherDescriptionsFromFile(MapName, WeatherDescriptions);
-  check(WeatherDescriptions.Num() > 0);
+  //WeatherDescriptions.Empty();
+  //ADynamicWeather::LoadWeatherDescriptionsFromFile(MapName, WeatherDescriptions);
+  //check(WeatherDescriptions.Num() > 0);
 }
 
 void UCarlaSettings::ValidateWeatherId()
 {
-  if (WeatherId >= WeatherDescriptions.Num()) {
-    UE_LOG(LogCarla, Error, TEXT("Provided weather id %d cannot be found"), WeatherId);
-    WeatherId = -1;
-  }
+  //if (WeatherId >= WeatherDescriptions.Num()) {
+    //UE_LOG(LogCarla, Error, TEXT("Provided weather id %d cannot be found"), WeatherId);
+    //WeatherId = -1;
+  //}
 }
 
 void UCarlaSettings::LogSettings() const
 {
   auto EnabledDisabled = [](bool bValue) { return (bValue ? TEXT("Enabled") : TEXT("Disabled")); };
-  UE_LOG(LogCarla, Log, TEXT("== CARLA Settings =============================================================="));
-  UE_LOG(LogCarla, Log, TEXT("Last settings file loaded: %s"), *CurrentFileName);
-  UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_SERVER);
-  UE_LOG(LogCarla, Log, TEXT("Networking = %s"), EnabledDisabled(bUseNetworking));
-  UE_LOG(LogCarla, Log, TEXT("World Port = %d"), WorldPort);
-  UE_LOG(LogCarla, Log, TEXT("Server Time-out = %d ms"), ServerTimeOut);
-  UE_LOG(LogCarla, Log, TEXT("Synchronous Mode = %s"), EnabledDisabled(bSynchronousMode));
-  UE_LOG(LogCarla, Log, TEXT("Send Non-Player Agents Info = %s"), EnabledDisabled(bSendNonPlayerAgentsInfo));
-  UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_LEVELSETTINGS);
-  UE_LOG(LogCarla, Log, TEXT("Player Vehicle        = %s"), (PlayerVehicle.IsEmpty() ? TEXT("Default") : *PlayerVehicle));
-  UE_LOG(LogCarla, Log, TEXT("Number Of Vehicles    = %d"), NumberOfVehicles);
-  UE_LOG(LogCarla, Log, TEXT("Number Of Pedestrians = %d"), NumberOfPedestrians);
-  UE_LOG(LogCarla, Log, TEXT("Weather Id = %d"), WeatherId);
-  UE_LOG(LogCarla, Log, TEXT("Seed Vehicle Spawner = %d"), SeedVehicles);
-  UE_LOG(LogCarla, Log, TEXT("Seed Pedestrian Spawner = %d"), SeedPedestrians);
-  UE_LOG(LogCarla, Log, TEXT("Two-Wheeled Vehicles = %s"), EnabledDisabled(!bDisableTwoWheeledVehicles));
-  UE_LOG(LogCarla, Log, TEXT("Found %d available weather settings."), WeatherDescriptions.Num());
-  for (auto i = 0; i < WeatherDescriptions.Num(); ++i)
-  {
-    UE_LOG(LogCarla, Log, TEXT("  * %d - %s"), i, *WeatherDescriptions[i].Name);
-  }
-  UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_QUALITYSETTINGS);
-  UE_LOG(LogCarla, Log, TEXT("Quality Settings = %s"), *UQualitySettings::ToString(QualitySettingsLevel));
+  //UE_LOG(LogCarla, Log, TEXT("== CARLA Settings =============================================================="));
+  //UE_LOG(LogCarla, Log, TEXT("Last settings file loaded: %s"), *CurrentFileName);
+  //UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_SERVER);
+  //UE_LOG(LogCarla, Log, TEXT("Networking = %s"), EnabledDisabled(bUseNetworking));
+  //UE_LOG(LogCarla, Log, TEXT("World Port = %d"), WorldPort);
+  //UE_LOG(LogCarla, Log, TEXT("Server Time-out = %d ms"), ServerTimeOut);
+  //UE_LOG(LogCarla, Log, TEXT("Synchronous Mode = %s"), EnabledDisabled(bSynchronousMode));
+  //UE_LOG(LogCarla, Log, TEXT("Send Non-Player Agents Info = %s"), EnabledDisabled(bSendNonPlayerAgentsInfo));
+  //UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_LEVELSETTINGS);
+  //UE_LOG(LogCarla, Log, TEXT("Player Vehicle        = %s"), (PlayerVehicle.IsEmpty() ? TEXT("Default") : *PlayerVehicle));
+  //UE_LOG(LogCarla, Log, TEXT("Number Of Vehicles    = %d"), NumberOfVehicles);
+  //UE_LOG(LogCarla, Log, TEXT("Number Of Pedestrians = %d"), NumberOfPedestrians);
+  //UE_LOG(LogCarla, Log, TEXT("Weather Id = %d"), WeatherId);
+  //UE_LOG(LogCarla, Log, TEXT("Seed Vehicle Spawner = %d"), SeedVehicles);
+  //UE_LOG(LogCarla, Log, TEXT("Seed Pedestrian Spawner = %d"), SeedPedestrians);
+  //UE_LOG(LogCarla, Log, TEXT("Two-Wheeled Vehicles = %s"), EnabledDisabled(!bDisableTwoWheeledVehicles));
+  //UE_LOG(LogCarla, Log, TEXT("Found %d available weather settings."), WeatherDescriptions.Num());
+  //for (auto i = 0; i < WeatherDescriptions.Num(); ++i)
+  //{
+    //UE_LOG(LogCarla, Log, TEXT("  * %d - %s"), i, *WeatherDescriptions[i].Name);
+  //}
+  //UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_QUALITYSETTINGS);
+  //UE_LOG(LogCarla, Log, TEXT("Quality Settings = %s"), *UQualitySettings::ToString(QualitySettingsLevel));
 
-  UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_SENSOR);
-  UE_LOG(LogCarla, Log, TEXT("Added %d sensors."), SensorDescriptions.Num());
-  UE_LOG(LogCarla, Log, TEXT("Semantic Segmentation = %s"), EnabledDisabled(bSemanticSegmentationEnabled));
+  //UE_LOG(LogCarla, Log, TEXT("[%s]"), S_CARLA_SENSOR);
+  //UE_LOG(LogCarla, Log, TEXT("Added %d sensors."), SensorDescriptions.Num());
+  //UE_LOG(LogCarla, Log, TEXT("Semantic Segmentation = %s"), EnabledDisabled(bSemanticSegmentationEnabled));
   for (auto &&Sensor : SensorDescriptions)
   {
     check(Sensor.Value != nullptr);
     Sensor.Value->Log();
   }
-  UE_LOG(LogCarla, Log, TEXT("================================================================================"));
+  //UE_LOG(LogCarla, Log, TEXT("================================================================================"));
 }
 
 #undef S_CARLA_SERVER
 #undef S_CARLA_LEVELSETTINGS
 #undef S_CARLA_SENSOR
 
+/*
 void UCarlaSettings::GetActiveWeatherDescription(
     bool &bWeatherWasChanged,
     FWeatherDescription &WeatherDescription) const
@@ -296,6 +297,7 @@ const FWeatherDescription &UCarlaSettings::GetWeatherDescriptionByIndex(int32 In
   FMath::Clamp(Index, 0, WeatherDescriptions.Num());
   return WeatherDescriptions[Index];
 }
+*/
 
 void UCarlaSettings::ResetSensorDescriptions()
 {
@@ -306,13 +308,13 @@ void UCarlaSettings::ResetSensorDescriptions()
 void UCarlaSettings::LoadSettingsFromFile(const FString &FilePath, const bool bLogOnFailure)
 {
   if (FPaths::FileExists(FilePath)) {
-    UE_LOG(LogCarla, Log, TEXT("Loading CARLA settings from \"%s\""), *FilePath);
+    //UE_LOG(LogCarla, Log, TEXT("Loading CARLA settings from \"%s\""), *FilePath);
     ResetSensorDescriptions();
     const FIniFile ConfigFile(FilePath);
     constexpr bool bLoadCarlaServerSection = true;
     LoadSettingsFromConfig(ConfigFile, *this, bLoadCarlaServerSection);
     CurrentFileName = FilePath;
   } else if (bLogOnFailure) {
-    UE_LOG(LogCarla, Error, TEXT("Unable to find settings file \"%s\""), *FilePath);
+    //UE_LOG(LogCarla, Error, TEXT("Unable to find settings file \"%s\""), *FilePath);
   }
 }

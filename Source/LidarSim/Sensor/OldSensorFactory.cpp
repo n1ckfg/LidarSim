@@ -38,12 +38,14 @@ void FSensorFactory::Visit(const UCameraDescription &Description)
 {
   auto Camera = SpawnSensor<ASceneCaptureCamera>(Description, World);
   Camera->Set(Description);
+  /*
   UE_LOG(
       LogCarla,
       Log,
       TEXT("Created Capture Camera %d with postprocess \"%s\""),
       Camera->GetId(),
       *PostProcessEffect::ToString(Camera->GetPostProcessEffect()));
+  */
   Sensor = Camera;
 }
 
@@ -51,10 +53,12 @@ void FSensorFactory::Visit(const ULidarDescription &Description)
 {
   auto Lidar = SpawnSensor<ALidar>(Description, World);
   Lidar->Set(Description);
+  /*
   UE_LOG(
       LogCarla,
       Log,
       TEXT("Created Lidar %d"),
       Lidar->GetId());
+  */
   Sensor = Lidar;
 }

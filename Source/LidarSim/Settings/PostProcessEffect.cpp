@@ -20,7 +20,7 @@ FString PostProcessEffect::ToString(EPostProcessEffect PostProcessEffect)
     case EPostProcessEffect::Depth:                 return TEXT("Depth");
     case EPostProcessEffect::SemanticSegmentation:  return TEXT("SemanticSegmentation");
     default:
-      UE_LOG(LogCarla, Error, TEXT("Invalid post-processing effect \"%d\""), ToUInt(PostProcessEffect));
+      //UE_LOG(LogCarla, Error, TEXT("Invalid post-processing effect \"%d\""), ToUInt(PostProcessEffect));
       return TEXT("INVALID");
   }
 }
@@ -37,7 +37,7 @@ EPostProcessEffect PostProcessEffect::FromString(const FString &String)
   } else if (Str == "semanticsegmentation") {
     return EPostProcessEffect::SemanticSegmentation;
   } else {
-    UE_LOG(LogCarla, Error, TEXT("Invalid post-processing effect \"%s\""), *String);
+    //UE_LOG(LogCarla, Error, TEXT("Invalid post-processing effect \"%s\""), *String);
     return EPostProcessEffect::INVALID;
   }
 }

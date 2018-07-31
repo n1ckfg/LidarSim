@@ -50,7 +50,7 @@ private:
       Message += TEXT(" ");
       Message += FString::Printf(Format, std::forward<ARGS>(Args)...);
 
-      UE_LOG(LogCarla, Error, TEXT("%s"), *Message);
+      //UE_LOG(LogCarla, Error, TEXT("%s"), *Message);
 #if WITH_EDITOR
       if(GEngine)
       {
@@ -227,6 +227,7 @@ void UActorBlueprintFunctionLibrary::MakeCameraDefinition(
   Success = CheckActorDefinition(Definition);
 }
 
+/*
 void UActorBlueprintFunctionLibrary::MakeVehicleDefinition(
     const FVehicleParameters &Parameters,
     bool &Success,
@@ -252,6 +253,7 @@ void UActorBlueprintFunctionLibrary::MakeVehicleDefinition(
   });
   Success = CheckActorDefinition(Definition);
 }
+*/
 
 template <typename T, typename Functor>
 static void FillActorDefinitionArray(
@@ -271,12 +273,14 @@ static void FillActorDefinitionArray(
   }
 }
 
+/*
 void UActorBlueprintFunctionLibrary::MakeVehicleDefinitions(
     const TArray<FVehicleParameters> &ParameterArray,
     TArray<FActorDefinition> &Definitions)
 {
   FillActorDefinitionArray(ParameterArray, Definitions, &MakeVehicleDefinition);
 }
+*/
 
 /// ============================================================================
 /// -- Helpers to retrieve attribute values ------------------------------------
@@ -288,7 +292,7 @@ bool UActorBlueprintFunctionLibrary::ActorAttributeToBool(
 {
   if (ActorAttribute.Type != EActorAttributeType::Bool)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a bool"), *ActorAttribute.Id);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a bool"), *ActorAttribute.Id);
     return Default;
   }
   return ActorAttribute.Value.ToBool();
@@ -300,7 +304,7 @@ int32 UActorBlueprintFunctionLibrary::ActorAttributeToInt(
 {
   if (ActorAttribute.Type != EActorAttributeType::Int)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not an int"), *ActorAttribute.Id);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not an int"), *ActorAttribute.Id);
     return Default;
   }
   return FCString::Atoi(*ActorAttribute.Value);
@@ -312,7 +316,7 @@ float UActorBlueprintFunctionLibrary::ActorAttributeToFloat(
 {
   if (ActorAttribute.Type != EActorAttributeType::Float)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a float"), *ActorAttribute.Id);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a float"), *ActorAttribute.Id);
     return Default;
   }
   return FCString::Atof(*ActorAttribute.Value);
@@ -324,7 +328,7 @@ FString UActorBlueprintFunctionLibrary::ActorAttributeToString(
 {
   if (ActorAttribute.Type != EActorAttributeType::String)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a string"), *ActorAttribute.Id);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a string"), *ActorAttribute.Id);
     return Default;
   }
   return ActorAttribute.Value;
@@ -336,14 +340,14 @@ FColor UActorBlueprintFunctionLibrary::ActorAttributeToColor(
 {
   if (ActorAttribute.Type != EActorAttributeType::RGBColor)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a color"), *ActorAttribute.Id);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s' is not a color"), *ActorAttribute.Id);
     return Default;
   }
   TArray<FString> Channels;
   ActorAttribute.Value.ParseIntoArray(Channels, TEXT(","), false);
   if (Channels.Num() != 3)
   {
-    UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s': invalid color '%s'"), *ActorAttribute.Id, *ActorAttribute.Value);
+    //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s': invalid color '%s'"), *ActorAttribute.Id, *ActorAttribute.Value);
     return Default;
   }
   TArray<uint8> Colors;
@@ -352,7 +356,7 @@ FColor UActorBlueprintFunctionLibrary::ActorAttributeToColor(
     auto Val = FCString::Atoi(*Str);
     if ((Val < 0) || (Val > std::numeric_limits<uint8>::max()))
     {
-      UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s': invalid color '%s'"), *ActorAttribute.Id, *ActorAttribute.Value);
+      //UE_LOG(LogCarla, Error, TEXT("ActorAttribute '%s': invalid color '%s'"), *ActorAttribute.Id, *ActorAttribute.Value);
       return Default;
     }
     Colors.Add(Val);

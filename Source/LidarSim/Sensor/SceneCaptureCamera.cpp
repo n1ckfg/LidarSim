@@ -17,7 +17,7 @@
 #include "CoreGlobals.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/TextureRenderTarget2D.h"
-#include "Game/CarlaGameInstance.h"
+//#include "Game/CarlaGameInstance.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Materials/Material.h"
 
@@ -141,6 +141,7 @@ void ASceneCaptureCamera::PostActorCreated()
 
 void ASceneCaptureCamera::BeginPlay()
 {
+  /*
   const bool bRemovePostProcessing = (PostProcessEffect != EPostProcessEffect::SceneFinal);
 
   // Setup render target.
@@ -204,7 +205,7 @@ void ASceneCaptureCamera::BeginPlay()
   UKismetSystemLibrary::ExecuteConsoleCommand(
       GetWorld(),
       FString("g.TimeoutForBlockOnRenderFence 300000"));
-
+  */
   Super::BeginPlay();
 }
 
@@ -289,6 +290,7 @@ void ASceneCaptureCamera::Set(const UCameraDescription &CameraDescription)
 {
   Super::Set(CameraDescription);
 
+  /*
   if (CameraDescription.bOverrideCameraPostProcessParameters)
   {
     auto &Override = CameraDescription.CameraPostProcessParameters;
@@ -305,20 +307,21 @@ void ASceneCaptureCamera::Set(const UCameraDescription &CameraDescription)
   SetImageSize(CameraDescription.ImageSizeX, CameraDescription.ImageSizeY);
   SetPostProcessEffect(CameraDescription.PostProcessEffect);
   SetFOVAngle(CameraDescription.FOVAngle);
+  */
 }
 
 bool ASceneCaptureCamera::ReadPixels(TArray<FColor> &BitMap) const
 {
   if (!CaptureRenderTarget)
   {
-    UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
+    //UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
     return false;
   }
   FTextureRenderTargetResource *RTResource =
       CaptureRenderTarget->GameThread_GetRenderTargetResource();
   if (RTResource == nullptr)
   {
-    UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
+    //UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
     return false;
   }
   FReadSurfaceDataFlags ReadPixelFlags(RCM_UNorm);
@@ -333,7 +336,7 @@ void ASceneCaptureCamera::WritePixelsNonBlocking(
   check(IsInRenderingThread());
   if (!CaptureRenderTarget)
   {
-    UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
+    //UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target"));
     return;
   }
   FTextureRenderTarget2DResource *RenderResource =
@@ -341,7 +344,7 @@ void ASceneCaptureCamera::WritePixelsNonBlocking(
   FTextureRHIParamRef texture = RenderResource->GetRenderTargetTexture();
   if (!texture)
   {
-    UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target texture"));
+    //UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render target texture"));
     return;
   }
   FImageHeaderData ImageHeader = {
@@ -370,7 +373,7 @@ void ASceneCaptureCamera::WritePixels(const uint64 FrameNumber) const
   FRHITexture2D *texture = CaptureRenderTarget->GetRenderTargetResource()->GetRenderTargetTexture();
   if (!texture)
   {
-    UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render texture"));
+    //UE_LOG(LogCarla, Error, TEXT("SceneCaptureCamera: Missing render texture"));
     return;
   }
   const uint32 num_bytes_per_pixel = 4;    // PF_R8G8B8A8

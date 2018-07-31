@@ -30,10 +30,10 @@ void ULidarDescription::Validate()
 void ULidarDescription::Log() const
 {
   Super::Log();
-  UE_LOG(LogCarla, Log, TEXT("Channels = %d"), Channels);
-  UE_LOG(LogCarla, Log, TEXT("Range = %f"), Range);
-  UE_LOG(LogCarla, Log, TEXT("PointsPerSecond = %d"), PointsPerSecond);
-  UE_LOG(LogCarla, Log, TEXT("RotationFrequency = %f"), RotationFrequency);
-  UE_LOG(LogCarla, Log, TEXT("UpperFovLimit = %f"), UpperFovLimit);
-  UE_LOG(LogCarla, Log, TEXT("LowerFovLimit = %f"), LowerFovLimit);
+  //UE_LOG(LogCarla, Log, TEXT("Channels = %d"), Channels);
+  //UE_LOG(LogCarla, Log, TEXT("Range = %f"), Range);
+  //UE_LOG(LogCarla, Log, TEXT("PointsPerSecond = %d"), PointsPerSecond);
+  //UE_LOG(LogCarla, Log, TEXT("RotationFrequency = %f"), RotationFrequency);
+  //UE_LOG(LogCarla, Log, TEXT("UpperFovLimit = %f"), UpperFovLimit);
+  //UE_LOG(LogCarla, Log, TEXT("LowerFovLimit = %f"), LowerFovLimit);
 }

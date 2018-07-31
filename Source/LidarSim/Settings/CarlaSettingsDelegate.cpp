@@ -1,7 +1,7 @@
 #include "CarlaSettingsDelegate.h"
 #include "LidarSim.h"
 
-#include "Game/CarlaGameModeBase.h"
+//#include "Game/CarlaGameModeBase.h"
 #include "Settings/CarlaSettings.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
@@ -86,14 +86,14 @@ void UCarlaSettingsDelegate::ApplyQualitySettingsLevelPostRestart()
 		}
 		break;
 	  case EQualitySettingsLevel::Medium: 
-		UE_LOG(LogCarla, Warning, TEXT("Medium Quality Settings level is not implemented yet and will have no effect."));
+		//UE_LOG(LogCarla, Warning, TEXT("Medium Quality Settings level is not implemented yet and will have no effect."));
 		break;
 	  case EQualitySettingsLevel::High: 
-		UE_LOG(LogCarla, Warning, TEXT("High Quality Settings level is not implemented yet and will have no effect."));
+		//UE_LOG(LogCarla, Warning, TEXT("High Quality Settings level is not implemented yet and will have no effect."));
         break;
 	  case EQualitySettingsLevel::None: 
 		/** No changes */
-		UE_LOG(LogCarla, Warning, TEXT("No Quality Settings level set. No changes applied."));
+		//UE_LOG(LogCarla, Warning, TEXT("No Quality Settings level set. No changes applied."));
 		break;
 	  default: case EQualitySettingsLevel::Epic:
 		{
@@ -122,6 +122,7 @@ UWorld* UCarlaSettingsDelegate::GetLocalWorld()
 
 void UCarlaSettingsDelegate::CheckCarlaSettings(UWorld* world)
 {
+  /*
   if(IsValid(CarlaSettings)) return;
   if(world==nullptr||!IsValid(world)||world->IsPendingKill()) world = GetLocalWorld();
   check(world!=nullptr);
@@ -129,6 +130,7 @@ void UCarlaSettingsDelegate::CheckCarlaSettings(UWorld* world)
   check(GameInstance!=nullptr);
   CarlaSettings = &GameInstance->GetCarlaSettings();
   check(CarlaSettings!=nullptr);
+  */
 }
 
 void UCarlaSettingsDelegate::LaunchLowQualityCommands(UWorld * world) const

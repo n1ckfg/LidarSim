@@ -31,7 +31,7 @@ void ASceneCaptureToDiskCamera::Tick(const float DeltaTime)
 
   if (bCaptureScene) {
     const FString FilePath = FPaths::Combine(SaveToFolder, FString::Printf(*FileName, CaptureFileNameCount));
-    UE_LOG(LogCarla, Log, TEXT("DeltaTime %fs: Capture %s"), DeltaTime, *FilePath);
+    //UE_LOG(LogCarla, Log, TEXT("DeltaTime %fs: Capture %s"), DeltaTime, *FilePath);
     SaveCaptureToDisk(FilePath);
     ++CaptureFileNameCount;
   }

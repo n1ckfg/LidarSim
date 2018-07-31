@@ -41,7 +41,7 @@ void UCameraDescription::AdjustToWeather(const FWeatherDescription &WeatherDescr
 void UCameraDescription::Log() const
 {
   Super::Log();
-  UE_LOG(LogCarla, Log, TEXT("Image Size = %dx%d"), ImageSizeX, ImageSizeY);
-  UE_LOG(LogCarla, Log, TEXT("Post-Processing = %s"), *PostProcessEffect::ToString(PostProcessEffect));
-  UE_LOG(LogCarla, Log, TEXT("FOV = %f"), FOVAngle);
+  //UE_LOG(LogCarla, Log, TEXT("Image Size = %dx%d"), ImageSizeX, ImageSizeY);
+  //UE_LOG(LogCarla, Log, TEXT("Post-Processing = %s"), *PostProcessEffect::ToString(PostProcessEffect));
+  //UE_LOG(LogCarla, Log, TEXT("FOV = %f"), FOVAngle);
 }

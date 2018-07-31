@@ -79,6 +79,7 @@ public:
   /** Log settings values. */
   void LogSettings() const;
 
+  /*
   const FWeatherDescription *GetActiveWeatherDescription() const
   {
     if ((WeatherId >= 0) && (WeatherId < WeatherDescriptions.Num())) {
@@ -86,7 +87,7 @@ public:
     }
     return nullptr;
   }
-
+  */
 
   // Special overload for blueprints.
   /*

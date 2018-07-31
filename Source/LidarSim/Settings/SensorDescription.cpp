@@ -27,9 +27,9 @@ void USensorDescription::Load(const FIniFile &Config, const FString &Section)
 
 void USensorDescription::Log() const
 {
-  UE_LOG(LogCarla, Log, TEXT("[%s/%s]"), TEXT("LidarSim/Sensor"), *Name);
-  UE_LOG(LogCarla, Log, TEXT("Id = %d"), GetId());
-  UE_LOG(LogCarla, Log, TEXT("Type = %s"), *Type);
-  UE_LOG(LogCarla, Log, TEXT("Position = (%s)"), *Position.ToString());
-  UE_LOG(LogCarla, Log, TEXT("Rotation = (%s)"), *Rotation.ToString());
+  //UE_LOG(LogCarla, Log, TEXT("[%s/%s]"), TEXT("LidarSim/Sensor"), *Name);
+  //UE_LOG(LogCarla, Log, TEXT("Id = %d"), GetId());
+  //UE_LOG(LogCarla, Log, TEXT("Type = %s"), *Type);
+  //UE_LOG(LogCarla, Log, TEXT("Position = (%s)"), *Position.ToString());
+  //UE_LOG(LogCarla, Log, TEXT("Rotation = (%s)"), *Rotation.ToString());
 }

@@ -16,12 +16,14 @@ FActorView FActorRegistry::Register(AActor &Actor, FActorDescription Description
   Actors.Emplace(Id, &Actor);
   if (Ids.Contains(&Actor))
   {
+    /*
     UE_LOG(
         LogCarla,
         Warning,
         TEXT("This actor's memory address is already registered, "
              "either you forgot to deregister the actor "
              "or the actor was garbage collected."));
+    */
   }
   Ids.Emplace(&Actor, Id);
   auto Result = ActorDatabase.emplace(Id, FActorView(Id, Actor, std::move(Description)));
