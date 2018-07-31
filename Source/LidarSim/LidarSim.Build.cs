@@ -10,7 +10,6 @@ public class LidarSim : ModuleRules
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"LidarSim/Public"
 				// ... add public include paths required here ...
 			}
 			);
@@ -18,7 +17,6 @@ public class LidarSim : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"LidarSim/Private",
 				// ... add other private include paths required here ...
 			}
 			);
@@ -28,7 +26,9 @@ public class LidarSim : ModuleRules
 			new string[]
 			{
 				"Core",
-				// ... add other public dependencies that you statically link with here ...
+        		"RenderCore",
+        		"RHI"
+        		// ... add other public dependencies that you statically link with here ...
 			}
 			);
 			
@@ -36,10 +36,14 @@ public class LidarSim : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
-				"Slate",
-				"SlateCore",
+		        "AIModule",
+		        "CoreUObject",
+		        "Engine",
+		        "PhysXVehicles",
+		        "Slate",
+		        "SlateCore",
+		        "Landscape",
+		        "Foliage"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
@@ -52,4 +56,9 @@ public class LidarSim : ModuleRules
 			}
 			);
 	}
+
+	private bool IsWindows(ReadOnlyTargetRules Target)
+  	{
+    	return (Target.Platform == UnrealTargetPlatform.Win64) || (Target.Platform == UnrealTargetPlatform.Win32);
+  	}
 }
