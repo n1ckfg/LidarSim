@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "Carla/Actor/ActorDefinition.h"
-#include "Carla/Actor/ActorDescription.h"
-#include "Carla/Actor/ActorSpawnResult.h"
+#include "LidarSim/Actor/ActorDefinition.h"
+#include "LidarSim/Actor/ActorDescription.h"
+#include "LidarSim/Actor/ActorSpawnResult.h"
 
 #include "Containers/Array.h"
 #include "GameFramework/Actor.h"
@@ -17,7 +17,7 @@
 
 /// Base class for Carla actor factories.
 UCLASS(Abstract)
-class CARLA_API ACarlaActorFactory : public AActor
+class LIDARSIM_API ACarlaActorFactory : public AActor
 {
   GENERATED_BODY()
 

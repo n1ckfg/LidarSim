@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <carla/rpc/ActorAttributeType.h>
+#include <LidarSim/rpc/ActorAttributeType.h>
 
 #include "ActorAttribute.generated.h"
 
@@ -35,7 +35,7 @@ enum class EActorAttributeType : uint8
 /// A list of recommended values is given. If bRestrictToRecommended is true,
 /// only recommended values are accepted as valid.
 USTRUCT(BlueprintType)
-struct CARLA_API FActorVariation
+struct LIDARSIM_API FActorVariation
 {
   GENERATED_BODY()
 
@@ -55,7 +55,7 @@ struct CARLA_API FActorVariation
 /// An actor attribute, may be an intrinsic (non-modifiable) attribute of the
 /// actor or an user-defined actor variation.
 USTRUCT(BlueprintType)
-struct CARLA_API FActorAttribute
+struct LIDARSIM_API FActorAttribute
 {
   GENERATED_BODY()
 

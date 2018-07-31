@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Carla.h"
 #include "LidarDescription.h"
+#include "LidarSim.h"
 
 #include "Util/IniFile.h"
 

@@ -6,15 +6,15 @@
 
 #pragma once
 
-#include "Carla/Actor/ActorDefinition.h"
-#include "Carla/Vehicle/CarlaWheeledVehicle.h"
+#include "LidarSim/Actor/ActorDefinition.h"
+//#include "LidarSim/Vehicle/CarlaWheeledVehicle.h"
 
 #include "Kismet/BlueprintFunctionLibrary.h"
 
 #include "ActorBlueprintFunctionLibrary.generated.h"
 
 USTRUCT(BlueprintType)
-struct CARLA_API FCameraParameters
+struct LIDARSIM_API FCameraParameters
 {
   GENERATED_BODY()
 
@@ -25,8 +25,9 @@ struct CARLA_API FCameraParameters
   TSubclassOf<AActor> Class;
 };
 
+/*
 USTRUCT(BlueprintType)
-struct CARLA_API FVehicleParameters
+struct LIDARSIM_API FVehicleParameters
 {
   GENERATED_BODY()
 
@@ -45,6 +46,7 @@ struct CARLA_API FVehicleParameters
   UPROPERTY(EditAnywhere, BlueprintReadWrite)
   TArray<FColor> RecommendedColors;
 };
+*/
 
 UCLASS()
 class UActorBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
@@ -79,6 +81,7 @@ public:
       bool &Success,
       FActorDefinition &Definition);
 
+  /*
   UFUNCTION(Category = "Carla Actor", BlueprintCallable)
   static void MakeVehicleDefinition(
       const FVehicleParameters &Parameters,
@@ -89,7 +92,8 @@ public:
   static void MakeVehicleDefinitions(
       const TArray<FVehicleParameters> &ParameterArray,
       TArray<FActorDefinition> &Definitions);
-
+  */
+  
   /// @}
   /// ==========================================================================
   /// @name Helpers to retrieve attribute values

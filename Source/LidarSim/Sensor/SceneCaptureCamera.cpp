@@ -4,8 +4,8 @@
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
-#include "Carla.h"
 #include "SceneCaptureCamera.h"
+#include "LidarSim.h"
 
 #include "Sensor/SensorDataView.h"
 #include "Settings/CarlaSettings.h"
@@ -29,15 +29,15 @@
 
 static constexpr auto DEPTH_MAT_PATH =
 #if PLATFORM_LINUX
-  TEXT("Material'/Carla/PostProcessingMaterials/DepthEffectMaterial_GLSL.DepthEffectMaterial_GLSL'");
+  TEXT("Material'/LidarSim/PostProcessingMaterials/DepthEffectMaterial_GLSL.DepthEffectMaterial_GLSL'");
 #elif PLATFORM_WINDOWS
-  TEXT("Material'/Carla/PostProcessingMaterials/DepthEffectMaterial.DepthEffectMaterial'");
+  TEXT("Material'/LidarSim/PostProcessingMaterials/DepthEffectMaterial.DepthEffectMaterial'");
 #else
 #  error No depth material defined for this platform
 #endif
 
 static constexpr auto SEMANTIC_SEGMENTATION_MAT_PATH =
-  TEXT("Material'/Carla/PostProcessingMaterials/GTMaterial.GTMaterial'");
+  TEXT("Material'/LidarSim/PostProcessingMaterials/GTMaterial.GTMaterial'");
 
 // =============================================================================
 // -- Local static methods and types -------------------------------------------

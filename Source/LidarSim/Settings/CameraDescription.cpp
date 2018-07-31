@@ -4,8 +4,8 @@
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
-#include "Carla.h"
 #include "CameraDescription.h"
+#include "LidarSim.h"
 
 #include "Util/IniFile.h"
 
@@ -27,6 +27,7 @@ void UCameraDescription::Validate()
   ImageSizeY = (ImageSizeY == 0u ? 512u : ImageSizeY);
 }
 
+/*
 void UCameraDescription::AdjustToWeather(const FWeatherDescription &WeatherDescription)
 {
   bOverrideCameraPostProcessParameters = WeatherDescription.bOverrideCameraPostProcessParameters;
@@ -35,6 +36,7 @@ void UCameraDescription::AdjustToWeather(const FWeatherDescription &WeatherDescr
     CameraPostProcessParameters = WeatherDescription.CameraPostProcessParameters;
   }
 }
+*/
 
 void UCameraDescription::Log() const
 {

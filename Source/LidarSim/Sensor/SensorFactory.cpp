@@ -4,11 +4,11 @@
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
-#include "Carla.h"
-#include "Carla/Sensor/SensorFactory.h"
+#include "LidarSim/Sensor/SensorFactory.h"
+#include "LidarSim.h"
 
-#include "Carla/Actor/ActorBlueprintFunctionLibrary.h"
-#include "Carla/Sensor/SceneCaptureCamera.h"
+#include "LidarSim/Actor/ActorBlueprintFunctionLibrary.h"
+#include "LidarSim/Sensor/SceneCaptureCamera.h"
 
 TArray<FActorDefinition> ASensorFactory::GetDefinitions()
 {

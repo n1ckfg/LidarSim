@@ -14,7 +14,7 @@ class URandomEngine;
 
 /// Base class for actors containing a random engine with a fixed seed.
 UCLASS(Abstract)
-class CARLA_API AActorWithRandomEngine : public AActor
+class LIDARSIM_API AActorWithRandomEngine : public AActor
 {
   GENERATED_BODY()
 

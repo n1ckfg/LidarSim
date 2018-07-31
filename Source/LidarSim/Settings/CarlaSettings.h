@@ -6,7 +6,7 @@
 
 #pragma once
 #include "Engine/StaticMesh.h"
-#include "WeatherDescription.h"
+//#include "WeatherDescription.h"
 #include "CarlaSettings.generated.h"
 
 UENUM(BlueprintType)
@@ -20,7 +20,7 @@ enum class EQualitySettingsLevel : uint8
 };
 
 UCLASS(BlueprintType)
-class CARLA_API UQualitySettings : public UObject
+class LIDARSIM_API UQualitySettings : public UObject
 {
 	GENERATED_BODY()
 
@@ -46,7 +46,7 @@ class USensorDescription;
  * props using the globalconfig or config meta.
  */
 UCLASS(BlueprintType, Blueprintable, config = Game, defaultconfig)
-class CARLA_API UCarlaSettings : public UObject
+class LIDARSIM_API UCarlaSettings : public UObject
 {
   GENERATED_BODY()
 
@@ -89,6 +89,7 @@ public:
 
 
   // Special overload for blueprints.
+  /*
   UFUNCTION(BlueprintCallable, Category="CARLA Settings")
   void GetActiveWeatherDescription(
       bool &bWeatherWasChanged,
@@ -96,6 +97,7 @@ public:
 
   UFUNCTION(BlueprintCallable)
   const FWeatherDescription &GetWeatherDescriptionByIndex(int32 Index);
+  */
 
   ///----------- constants ------------------
 public:
@@ -177,8 +179,8 @@ public:
   int32 WeatherId = -1;
 
   /** Available weather settings. */
-  UPROPERTY(Category = "Level Settings", VisibleAnywhere)
-  TArray<FWeatherDescription> WeatherDescriptions;
+  //UPROPERTY(Category = "Level Settings", VisibleAnywhere)
+  //TArray<FWeatherDescription> WeatherDescriptions;
 
   /** Random seed for the pedestrian spawner. */
   UPROPERTY(Category = "Level Settings", VisibleAnywhere)

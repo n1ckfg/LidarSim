@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Carla.h"
-#include "Carla/Actor/ActorSpawnResult.h"
+#include "Actor/ActorSpawnResult.h"
+#include "LidarSim.h"
 
 FString FActorSpawnResult::StatusToString(EActorSpawnResultStatus InStatus)
 {

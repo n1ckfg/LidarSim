@@ -4,9 +4,9 @@
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
-#include "Carla.h"
 #include "CarlaSettings.h"
-#include "DynamicWeather.h"
+#include "LidarSim.h"
+//#include "DynamicWeather.h"
 #include "Settings/CameraDescription.h"
 #include "Settings/LidarDescription.h"
 #include "Util/IniFile.h"
@@ -22,10 +22,10 @@
 #include "Materials/MaterialInstance.h"
 
 // INI file sections.
-#define S_CARLA_SERVER                 TEXT("CARLA/Server")
-#define S_CARLA_LEVELSETTINGS          TEXT("CARLA/LevelSettings")
-#define S_CARLA_SENSOR                 TEXT("CARLA/Sensor")
-#define S_CARLA_QUALITYSETTINGS        TEXT("CARLA/QualitySettings")
+#define S_CARLA_SERVER                 TEXT("LidarSim/Server")
+#define S_CARLA_LEVELSETTINGS          TEXT("LidarSim/LevelSettings")
+#define S_CARLA_SENSOR                 TEXT("LidarSim/Sensor")
+#define S_CARLA_QUALITYSETTINGS        TEXT("LidarSim/QualitySettings")
 
 // =============================================================================
 // -- Static variables & constants ---------------------------------------------

@@ -11,7 +11,7 @@
 #include "SceneCaptureToDiskCamera.generated.h"
 
 UCLASS(Blueprintable,BlueprintType)
-class CARLA_API ASceneCaptureToDiskCamera : public ASceneCaptureCamera
+class LIDARSIM_API ASceneCaptureToDiskCamera : public ASceneCaptureCamera
 {
   GENERATED_BODY()
 

@@ -15,7 +15,7 @@ struct FWeatherDescription;
 
 /// A description of a sensor as loaded from the settings file.
 UCLASS(Abstract)
-class CARLA_API USensorDescription : public UObject
+class LIDARSIM_API USensorDescription : public UObject
 {
   GENERATED_BODY()
 

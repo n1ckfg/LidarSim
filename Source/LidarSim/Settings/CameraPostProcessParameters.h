@@ -15,7 +15,7 @@
   * the weather and lighting conditions.
   */
 USTRUCT(BlueprintType)
-struct CARLA_API FCameraPostProcessParameters
+struct LIDARSIM_API FCameraPostProcessParameters
 {
   GENERATED_USTRUCT_BODY()
 

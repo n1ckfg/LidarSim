@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "Carla/Actor/ActorDefinition.h"
-#include "Carla/Actor/ActorDescription.h"
-#include "Carla/Actor/ActorRegistry.h"
-#include "Carla/Actor/ActorSpawnResult.h"
+#include "LidarSim/Actor/ActorDefinition.h"
+#include "LidarSim/Actor/ActorDescription.h"
+#include "LidarSim/Actor/ActorRegistry.h"
+#include "LidarSim/Actor/ActorSpawnResult.h"
 
 #include "Containers/Array.h"
 #include "Templates/Function.h"

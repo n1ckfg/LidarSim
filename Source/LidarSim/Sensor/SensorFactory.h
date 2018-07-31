@@ -6,14 +6,14 @@
 
 #pragma once
 
-#include "Carla/Actor/ActorSpawnResult.h"
-#include "Carla/Actor/CarlaActorFactory.h"
+#include "LidarSim/Actor/ActorSpawnResult.h"
+#include "LidarSim/Actor/CarlaActorFactory.h"
 
 #include "SensorFactory.generated.h"
 
 /// Object in charge of spawning sensors.
 UCLASS()
-class CARLA_API ASensorFactory : public ACarlaActorFactory
+class LIDARSIM_API ASensorFactory : public ACarlaActorFactory
 {
   GENERATED_BODY()
 

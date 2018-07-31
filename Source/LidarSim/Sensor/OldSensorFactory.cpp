@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Carla.h"
-#include "OldSensorFactory.h"
+#include "Sensor/OldSensorFactory.h"
+#include "LidarSim.h"
 
 #include "Sensor/Lidar.h"
 #include "Sensor/SceneCaptureCamera.h"

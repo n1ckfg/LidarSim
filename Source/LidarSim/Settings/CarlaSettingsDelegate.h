@@ -11,7 +11,7 @@
 
 /// Used to set settings for every actor that is spawned into the world.
 UCLASS(BlueprintType)
-class CARLA_API UCarlaSettingsDelegate : public UObject
+class LIDARSIM_API UCarlaSettingsDelegate : public UObject
 {
   GENERATED_BODY()
 

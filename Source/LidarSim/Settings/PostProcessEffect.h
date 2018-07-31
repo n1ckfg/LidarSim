@@ -21,7 +21,7 @@ enum class EPostProcessEffect : uint8
 };
 
 /// Helper class for working with EPostProcessEffect.
-class CARLA_API PostProcessEffect {
+class LIDARSIM_API PostProcessEffect {
 public:
 
   using uint_type = typename std::underlying_type<EPostProcessEffect>::type;

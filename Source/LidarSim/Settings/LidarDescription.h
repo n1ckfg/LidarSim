@@ -7,7 +7,7 @@
 #include "LidarDescription.generated.h"
 
 UCLASS()
-class CARLA_API ULidarDescription : public USensorDescription
+class LIDARSIM_API ULidarDescription : public USensorDescription
 {
   GENERATED_BODY()
 

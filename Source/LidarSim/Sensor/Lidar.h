@@ -11,7 +11,7 @@
 
 /// A ray-trace based Lidar sensor.
 UCLASS()
-class CARLA_API ALidar : public ASensor
+class LIDARSIM_API ALidar : public ASensor
 {
   GENERATED_BODY()
 

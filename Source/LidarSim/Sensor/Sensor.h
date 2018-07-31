@@ -15,7 +15,7 @@
 
 /// Base class for sensors.
 UCLASS(Abstract, hidecategories=(Collision, Attachment, Actor))
-class CARLA_API ASensor : public AActor
+class LIDARSIM_API ASensor : public AActor
 {
   GENERATED_BODY()
 

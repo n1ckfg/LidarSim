@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Carla.h"
-#include "Carla/Actor/ActorRegistry.h"
+#include "LidarSim/Actor/ActorRegistry.h"
+#include "LidarSim.h"
 
 FActorView FActorRegistry::Register(AActor &Actor, FActorDescription Description)
 {
