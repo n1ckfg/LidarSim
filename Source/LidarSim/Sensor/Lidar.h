@@ -25,6 +25,10 @@ public:
 
   void Set(const ULidarDescription &LidarDescription);
 
+  void BeginPlay();
+
+  ULidarDescription lidarDescription;
+
 protected:
 
   virtual void Tick(float DeltaTime) override;

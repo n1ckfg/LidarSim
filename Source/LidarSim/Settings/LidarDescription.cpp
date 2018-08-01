@@ -2,6 +2,11 @@
 
 #include "LidarDescription.h"
 
+ULidarDescription::ULidarDescription(void) 
+{ 
+  //
+}
+
 void ULidarDescription::Load(const FIniFile &Config, const FString &Section)
 {
   Super::Load(Config, Section);

@@ -54,7 +54,7 @@ public:
   void SetFrameNumber(uint64 FrameNumber)
   {
     //std::memcpy(Header.GetData(), reinterpret_cast<const void *>(&FrameNumber), 2u);
-    memcpy(Header.GetData(), reinterpret_cast<const void *>(&FrameNumber), 2u);
+    FMemory::Memcpy(Header.GetData(), reinterpret_cast<const void *>(&FrameNumber), 2u);
   }
 
   float GetHorizontalAngle() const
@@ -75,7 +75,7 @@ public:
   void Reset(uint32 TotalPointCount)
   {
     //std::memset(Header.GetData() + 4u, 0, sizeof(uint32) * GetChannelCount());
-    memset(Header.GetData() + 4u, 0, sizeof(uint32) * GetChannelCount());
+    FMemory::Memset(Header.GetData() + 4u, 0, sizeof(uint32) * GetChannelCount());
     Points.Reset(3u * TotalPointCount);
   }
 

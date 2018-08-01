@@ -42,8 +42,6 @@ public:
 
   virtual void Log() const;
 
-public:
-
   /** Display name of the sensor. */
   UPROPERTY(Category = "Sensor Description", EditDefaultsOnly)
   FString Name;

@@ -2,8 +2,7 @@
 
 #include "Lidar.h"
 
-ALidar::ALidar(const FObjectInitializer& ObjectInitializer)
-  : Super(ObjectInitializer)
+ALidar::ALidar(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
   PrimaryActorTick.bCanEverTick = true;
 
@@ -13,6 +12,11 @@ ALidar::ALidar(const FObjectInitializer& ObjectInitializer)
   MeshComp->CastShadow = false;
   MeshComp->PostPhysicsComponentTick.bCanEverTick = false;
   RootComponent = MeshComp;
+}
+
+void ALidar::BeginPlay() 
+{
+  Set(lidarDescription);
 }
 
 void ALidar::Set(const ULidarDescription &LidarDescription)
@@ -89,7 +93,8 @@ void ALidar::ReadPoints(const float DeltaTime)
     }
   }
 
-  const float HorizontalAngle = fmod(CurrentHorizontalAngle + AngleDistanceOfTick, 360.0f);
+  //const float HorizontalAngle = std::fmod(CurrentHorizontalAngle + AngleDistanceOfTick, 360.0f); 
+  const float HorizontalAngle = FGenericPlatformMath::Fmod(CurrentHorizontalAngle + AngleDistanceOfTick, 360.0f); 
   LidarMeasurement.SetFrameNumber(GFrameCounter);
   LidarMeasurement.SetHorizontalAngle(HorizontalAngle);
 }
