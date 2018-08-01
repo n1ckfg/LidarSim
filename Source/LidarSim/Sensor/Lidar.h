@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include "LidarSim.h"
-
 #include "Sensor/Sensor.h"
 #include "Sensor/LidarMeasurement.h"
 #include "Settings/LidarDescription.h"

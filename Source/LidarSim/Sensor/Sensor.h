@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "LidarSim.h"
-
 #include "Sensor/SensorDataSink.h"
 #include "Settings/SensorDescription.h"
 

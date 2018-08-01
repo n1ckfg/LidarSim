@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "LidarSim.h"
-
 #include "Settings/SensorDescriptionVisitor.h"
 #include "Util/IniFile.h"
 
