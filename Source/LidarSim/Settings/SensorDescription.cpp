@@ -5,9 +5,6 @@
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
 #include "SensorDescription.h"
-#include "LidarSim.h"
-
-#include "Util/IniFile.h"
 
 void USensorDescription::AcceptVisitor(ISensorDescriptionVisitor &Visitor) const
 {

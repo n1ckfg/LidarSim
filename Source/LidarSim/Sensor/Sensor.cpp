@@ -5,7 +5,6 @@
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
 #include "Sensor.h"
-#include "LidarSim.h"
 
 ASensor::ASensor(const FObjectInitializer& ObjectInitializer)
   : Super(ObjectInitializer),

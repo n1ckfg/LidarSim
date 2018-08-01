@@ -1,12 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Lidar.h"
-#include "LidarSim.h"
-
-#include "DrawDebugHelpers.h"
-#include "Engine/CollisionProfile.h"
-#include "Runtime/Engine/Classes/Kismet/KismetMathLibrary.h"
-#include "StaticMeshResources.h"
 
 ALidar::ALidar(const FObjectInitializer& ObjectInitializer)
   : Super(ObjectInitializer)
@@ -95,7 +89,7 @@ void ALidar::ReadPoints(const float DeltaTime)
     }
   }
 
-  const float HorizontalAngle = std::fmod(CurrentHorizontalAngle + AngleDistanceOfTick, 360.0f);
+  const float HorizontalAngle = fmod(CurrentHorizontalAngle + AngleDistanceOfTick, 360.0f);
   LidarMeasurement.SetFrameNumber(GFrameCounter);
   LidarMeasurement.SetHorizontalAngle(HorizontalAngle);
 }

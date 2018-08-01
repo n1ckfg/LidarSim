@@ -2,10 +2,16 @@
 
 #pragma once
 
-#include "Sensor/Sensor.h"
+#include "LidarSim.h"
 
+#include "Sensor/Sensor.h"
 #include "Sensor/LidarMeasurement.h"
 #include "Settings/LidarDescription.h"
+
+#include "DrawDebugHelpers.h"
+#include "Engine/CollisionProfile.h"
+#include "Runtime/Engine/Classes/Kismet/KismetMathLibrary.h"
+#include "StaticMeshResources.h"
 
 #include "Lidar.generated.h"
 

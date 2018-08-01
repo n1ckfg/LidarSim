@@ -6,13 +6,15 @@
 
 #pragma once
 
+#include "Util/NonCopyable.h"
+
 #include "ConfigCacheIni.h"
 
 #include <limits>
 
 /// Wrapper around Unreal's INI file. In get functions, @a Target value is only
 /// set if it was present in the INI file, otherwise it keeps its value.
-class LIDARSIM_API FIniFile : private FNoncopyable
+class LIDARSIM_API FIniFile : private NonCopyable //FNoncopyable
 {
 private:
 

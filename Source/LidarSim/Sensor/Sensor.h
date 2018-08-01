@@ -6,10 +6,12 @@
 
 #pragma once
 
-#include "GameFramework/Actor.h"
+#include "LidarSim.h"
 
 #include "Sensor/SensorDataSink.h"
 #include "Settings/SensorDescription.h"
+
+#include "GameFramework/Actor.h"
 
 #include "Sensor.generated.h"
 

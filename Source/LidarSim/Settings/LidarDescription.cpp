@@ -1,9 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "LidarDescription.h"
-#include "LidarSim.h"
-
-#include "Util/IniFile.h"
 
 void ULidarDescription::Load(const FIniFile &Config, const FString &Section)
 {
