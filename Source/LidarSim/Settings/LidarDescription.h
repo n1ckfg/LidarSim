@@ -13,7 +13,7 @@ class LIDARSIM_API ULidarDescription : public USensorDescription
   GENERATED_BODY()
 
 public:
-  ULidarDescription();  
+  ULidarDescription(const FObjectInitializer &ObjectInitializer);  
 
   virtual void AcceptVisitor(ISensorDescriptionVisitor &Visitor) const final
   {

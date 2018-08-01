@@ -27,8 +27,6 @@ public:
 
   void BeginPlay();
 
-  ULidarDescription lidarDescription;
-
 protected:
 
   virtual void Tick(float DeltaTime) override;

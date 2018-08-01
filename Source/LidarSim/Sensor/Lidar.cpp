@@ -16,7 +16,8 @@ ALidar::ALidar(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 
 void ALidar::BeginPlay() 
 {
-  Set(lidarDescription);
+  Description = NewObject<ULidarDescription>(this, ULidarDescription::StaticClass());
+  Set(*Description);
 }
 
 void ALidar::Set(const ULidarDescription &LidarDescription)

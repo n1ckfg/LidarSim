@@ -2,7 +2,7 @@
 
 #include "LidarDescription.h"
 
-ULidarDescription::ULidarDescription(void) 
+ULidarDescription::ULidarDescription(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 { 
   //
 }
