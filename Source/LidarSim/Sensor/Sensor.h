@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "LidarSim.h"
+
 #include "Sensor/SensorDataSink.h"
 #include "Settings/SensorDescription.h"
 
@@ -47,7 +49,7 @@ protected:
     if (SensorDataSink.IsValid()) {
       SensorDataSink->Write(SensorData);
     } else {
-      //UE_LOG(LogCarla, Warning, TEXT("Sensor %d has no data sink."), Id);
+      std::cout << "Sensor %d has no data sink." << Id << "\n";
     }
   }
 

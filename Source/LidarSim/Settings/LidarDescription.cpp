@@ -32,10 +32,10 @@ void ULidarDescription::Validate()
 void ULidarDescription::Log() const
 {
   Super::Log();
-  //UE_LOG(LogCarla, Log, TEXT("Channels = %d"), Channels);
-  //UE_LOG(LogCarla, Log, TEXT("Range = %f"), Range);
-  //UE_LOG(LogCarla, Log, TEXT("PointsPerSecond = %d"), PointsPerSecond);
-  //UE_LOG(LogCarla, Log, TEXT("RotationFrequency = %f"), RotationFrequency);
-  //UE_LOG(LogCarla, Log, TEXT("UpperFovLimit = %f"), UpperFovLimit);
-  //UE_LOG(LogCarla, Log, TEXT("LowerFovLimit = %f"), LowerFovLimit);
+  std::cout << "Channels = %d" << Channels << "\n";
+  std::cout << "Range = %f" << Range << "\n";
+  std::cout << "PointsPerSecond = %d" << PointsPerSecond << "\n";
+  std::cout << "RotationFrequency = %f" << RotationFrequency << "\n";
+  std::cout << "UpperFovLimit = %f" << UpperFovLimit << "\n";
+  std::cout << "LowerFovLimit = %f" << LowerFovLimit << "\n";
 }

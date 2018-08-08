@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "LidarSim.h"
+
 #include "Util/NonCopyable.h"
 
 #include "ConfigCacheIni.h"
@@ -25,7 +27,7 @@ private:
         (source <= std::numeric_limits<TARGET>::max())) {
       target = static_cast<TARGET>(source);
     } else {
-      //UE_LOG(LogCarla, Error, TEXT("FIniFile: Type cast failed"));
+      std::cout << "FIniFile: Type cast failed" << "\n";
     }
   }
 

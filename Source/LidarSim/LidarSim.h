@@ -5,6 +5,11 @@
 #include "CoreMinimal.h"
 #include "ModuleManager.h"
 
+#include <stdio.h>
+#include <iostream>
+#include <exception>
+#include <cmath>
+
 class FLidarSimModule : public IModuleInterface
 {
 public:
