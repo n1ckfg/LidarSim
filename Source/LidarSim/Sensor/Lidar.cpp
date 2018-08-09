@@ -5,6 +5,7 @@
 ALidar::ALidar(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
   PrimaryActorTick.bCanEverTick = true;
+  //PrimaryActorTick.bStartWithTickEnabled = true;
 
   auto MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CamMesh0"));
   MeshComp->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
@@ -16,6 +17,9 @@ ALidar::ALidar(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 
 void ALidar::BeginPlay() 
 {
+  Super::BeginPlay();
+  SetActorTickEnabled(true);
+
   Description = NewObject<ULidarDescription>(this, ULidarDescription::StaticClass());
   Set(*Description);
 }
@@ -23,6 +27,7 @@ void ALidar::BeginPlay()
 void ALidar::Set(const ULidarDescription &LidarDescription)
 {
   Super::Set(LidarDescription);
+
   Description = &LidarDescription;
   LidarMeasurement = FLidarMeasurement(GetId(), Description->Channels);
   CreateLasers();
@@ -51,6 +56,20 @@ void ALidar::Tick(const float DeltaTime)
 
   ReadPoints(DeltaTime);
   WriteSensorData(LidarMeasurement.GetView());
+
+  if (debugging)
+  {
+    int numPoints = 10;
+    for (int i=0; i<numPoints; i++)
+    {
+      std::cout << LidarMeasurement.Points[i];
+      if (i < numPoints-1) std::cout << ", ";
+    }
+    std::cout << "\n";
+  
+  // for printing to UE console
+  //UE_LOG(LogTemp, Warning, TEXT("example"));
+  }
 }
 
 void ALidar::ReadPoints(const float DeltaTime)

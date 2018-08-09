@@ -29,6 +29,8 @@ public:
 
   void BeginPlay();
 
+  bool debugging = true;
+
 protected:
 
   virtual void Tick(float DeltaTime) override;

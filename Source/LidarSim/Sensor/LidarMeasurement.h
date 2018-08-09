@@ -94,7 +94,7 @@ public:
     return FSensorDataView(SensorId, Header, Points);
   }
 
-private:
+//private:
 
   uint32 SensorId;
 
