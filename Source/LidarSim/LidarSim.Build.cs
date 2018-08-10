@@ -9,18 +9,25 @@ public class LidarSim : ModuleRules
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicIncludePaths.AddRange(
-			new string[] {
+			new string[] 
+			{
 				// ... add public include paths required here ...
 			}
-			);
-				
+		);
 		
+		PublicSystemIncludePaths.AddRange(
+			new string[] 
+			{
+		   		"../../../../src/ros_unreal/unreal_ros_node_wrapper/include/"
+		   	}
+		);		
+
 		PrivateIncludePaths.AddRange(
-			new string[] {
+			new string[] 
+			{
 				// ... add other private include paths required here ...
 			}
-			);
-			
+		);
 		
 		PublicDependencyModuleNames.AddRange(
 			new string[]
@@ -30,8 +37,7 @@ public class LidarSim : ModuleRules
         		"RHI"
         		// ... add other public dependencies that you statically link with here ...
 			}
-			);
-			
+		);
 		
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
@@ -46,15 +52,21 @@ public class LidarSim : ModuleRules
 		        "Foliage"
 				// ... add private dependencies that you statically link with here ...	
 			}
-			);
-		
-		
+		);
+	
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[]
 			{
 				// ... add any modules that your module loads dynamically here ...
 			}
-			);
+		);
+
+		PublicAdditionalLibraries.AddRange(
+			new string[]
+			{
+				"../../../../devel/lib/libunreal_ros_node_wrapper.so"
+			}
+		);		
 	}
 
 	private bool IsWindows(ReadOnlyTargetRules Target)
