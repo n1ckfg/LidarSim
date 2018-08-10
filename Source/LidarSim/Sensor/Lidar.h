@@ -32,7 +32,7 @@ public:
   bool debugging = false;
   bool drawRays = true;
   bool writeTestFile = true;
-  int pointsMax = 500000;
+  int pointsMax = 200000;
   int pointsCounter = 0;
   std::ofstream pointsFile;
 

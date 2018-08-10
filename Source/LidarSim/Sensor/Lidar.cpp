@@ -64,20 +64,16 @@ void ALidar::Tick(const float DeltaTime)
   {
     for (int i=0; i<LidarMeasurement.Points.Num(); i += 3)
     {
-      constexpr float TO_METERS = 1e-2f; // from LidarMeasurement.h L86
+      float x = LidarMeasurement.Points[i];
+      float y = LidarMeasurement.Points[i+1];
+      float z = LidarMeasurement.Points[i+2];
 
-      float x = LidarMeasurement.Points[i] / TO_METERS;
-      float y = (LidarMeasurement.Points[i+1] / TO_METERS) + (100 * i);
-      float z = LidarMeasurement.Points[i+2] / TO_METERS;
-
-      FVector p = FVector(x,y,z);//UKismetMathLibrary::RotateAngleAxis(FVector(x, y, z), - GetActorRotation().Yaw + 90, FVector(0, 0, 1));
-
-      pointsFile << p.X << ", " << p.Y << ", " << p.Z << "\n";
+      pointsFile << x << ", " << y << ", " << z << "\n";
       pointsCounter++;
       if (pointsCounter > pointsMax) {
         pointsFile.close();
+        UE_LOG(LogTemp, Warning, TEXT("*** TEST FILE WRITTEN ***"));
         writeTestFile = false;
-        std::cout << "*** TEST FILE WRITTEN ***\n";
         break;
       }
     }
