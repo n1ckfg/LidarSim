@@ -36,10 +36,6 @@ public:
   int pointsCounter = 0;
   std::ofstream pointsFile;
 
-  void ROSNodeWrapperInit();
-  bool NodeWrapperOK;
-  TUniquePtr<unreal_ros_node_wrapper::UnrealRosNodeWrapper> ros_node_wrapper;
-
 protected:
 
   virtual void Tick(float DeltaTime) override;

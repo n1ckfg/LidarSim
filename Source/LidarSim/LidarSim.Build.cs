@@ -18,7 +18,7 @@ public class LidarSim : ModuleRules
 		PublicSystemIncludePaths.AddRange(
 			new string[] 
 			{
-		   		"../../../../src/ros_unreal/unreal_ros_node_wrapper/include/"
+				//
 		   	}
 		);		
 
@@ -64,7 +64,7 @@ public class LidarSim : ModuleRules
 		PublicAdditionalLibraries.AddRange(
 			new string[]
 			{
-				"../../../../devel/lib/libunreal_ros_node_wrapper.so"
+				//
 			}
 		);		
 	}

@@ -23,24 +23,10 @@ void ALidar::BeginPlay()
   Description = NewObject<ULidarDescription>(this, ULidarDescription::StaticClass());
   Set(*Description);
 
-  //ROSNodeWrapperInit();
-
   if (writeTestFile)
   {
     std::string url = std::string(TCHAR_TO_UTF8(*FPaths::ProjectDir())) + "/points.xyz";
     pointsFile.open(url);
-  }
-}
-
-void ALidar::ROSNodeWrapperInit() {
-  //ros_node_wrapper.Reset(unreal_ros_node_wrapper::UnrealRosNodeWrapper::create());
-
-  if (ros_node_wrapper->start()) {
-    UE_LOG(LogTemp, Display, TEXT("unreal_ros_node_wrapper initialized"));
-    NodeWrapperOK = true;
-  } else {
-    UE_LOG(LogTemp, Warning, TEXT("unreal_ros_node_wrapper not initialized"));
-    NodeWrapperOK = false;
   }
 }
 

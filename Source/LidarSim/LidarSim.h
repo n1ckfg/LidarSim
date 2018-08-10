@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "ModuleManager.h"
 
-#include <unreal_ros_node_wrapper/unreal_ros_node_wrapper.hpp>
-
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
