@@ -28,8 +28,13 @@ public:
   void Set(const ULidarDescription &LidarDescription);
 
   void BeginPlay();
-
-  bool debugging = true;
+  
+  bool debugging = false;
+  bool drawRays = true;
+  bool writeTestFile = true;
+  int pointsMax = 500000;
+  int pointsCounter = 0;
+  std::ofstream pointsFile;
 
 protected:
 

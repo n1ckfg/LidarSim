@@ -49,7 +49,7 @@ protected:
     if (SensorDataSink.IsValid()) {
       SensorDataSink->Write(SensorData);
     } else {
-      std::cout << "Sensor %d has no data sink." << Id << "\n";
+      //std::cout << "Sensor %d has no data sink." << Id << "\n";
     }
   }
 

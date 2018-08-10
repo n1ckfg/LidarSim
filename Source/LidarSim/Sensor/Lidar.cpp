@@ -22,6 +22,12 @@ void ALidar::BeginPlay()
 
   Description = NewObject<ULidarDescription>(this, ULidarDescription::StaticClass());
   Set(*Description);
+
+  if (writeTestFile)
+  {
+    std::string url = std::string(TCHAR_TO_UTF8(*FPaths::ProjectDir())) + "/points.xyz";
+    pointsFile.open(url);
+  }
 }
 
 void ALidar::Set(const ULidarDescription &LidarDescription)
@@ -38,14 +44,11 @@ void ALidar::CreateLasers()
   check(Description != nullptr);
   const auto NumberOfLasers = Description->Channels;
   check(NumberOfLasers > 0u);
-  const float DeltaAngle =
-    (Description->UpperFovLimit - Description->LowerFovLimit) /
-    static_cast<float>(NumberOfLasers - 1);
+  const float DeltaAngle = (Description->UpperFovLimit - Description->LowerFovLimit) / static_cast<float>(NumberOfLasers - 1);
   LaserAngles.Empty(NumberOfLasers);
   for(auto i = 0u; i < NumberOfLasers; ++i)
   {
-    const float VerticalAngle =
-      Description->UpperFovLimit - static_cast<float>(i) * DeltaAngle;
+    const float VerticalAngle = Description->UpperFovLimit - static_cast<float>(i) * DeltaAngle;
     LaserAngles.Emplace(VerticalAngle);
   }
 }
@@ -57,27 +60,42 @@ void ALidar::Tick(const float DeltaTime)
   ReadPoints(DeltaTime);
   WriteSensorData(LidarMeasurement.GetView());
 
+  if (writeTestFile) 
+  {
+    for (int i=0; i<LidarMeasurement.Points.Num(); i += 3)
+    {
+      constexpr float TO_METERS = 1e-2f; // from LidarMeasurement.h L86
+
+      float x = LidarMeasurement.Points[i] / TO_METERS;
+      float y = (LidarMeasurement.Points[i+1] / TO_METERS) + (100 * i);
+      float z = LidarMeasurement.Points[i+2] / TO_METERS;
+
+      FVector p = FVector(x,y,z);//UKismetMathLibrary::RotateAngleAxis(FVector(x, y, z), - GetActorRotation().Yaw + 90, FVector(0, 0, 1));
+
+      pointsFile << p.X << ", " << p.Y << ", " << p.Z << "\n";
+      pointsCounter++;
+      if (pointsCounter > pointsMax) {
+        pointsFile.close();
+        writeTestFile = false;
+        std::cout << "*** TEST FILE WRITTEN ***\n";
+        break;
+      }
+    }
+  }
+
   if (debugging)
   {
-    int numPoints = 10;
-    for (int i=0; i<numPoints; i++)
-    {
-      std::cout << LidarMeasurement.Points[i];
-      if (i < numPoints-1) std::cout << ", ";
-    }
-    std::cout << "\n";
+    std::cout << LidarMeasurement.Points[0];
   
-  // for printing to UE console
-  //UE_LOG(LogTemp, Warning, TEXT("example"));
+    // for printing to UE console
+    //UE_LOG(LogTemp, Warning, TEXT("example"));
   }
 }
 
 void ALidar::ReadPoints(const float DeltaTime)
 {
   const uint32 ChannelCount = Description->Channels;
-  const uint32 PointsToScanWithOneLaser =
-    FMath::RoundHalfFromZero(
-        Description->PointsPerSecond * DeltaTime / float(ChannelCount));
+  const uint32 PointsToScanWithOneLaser = FMath::RoundHalfFromZero(Description->PointsPerSecond * DeltaTime / float(ChannelCount));
 
   if (PointsToScanWithOneLaser <= 0)
   {
@@ -126,10 +144,7 @@ bool ALidar::ShootLaser(const uint32 Channel, const float HorizontalAngle, FVect
   FVector LidarBodyLoc = GetActorLocation();
   FRotator LidarBodyRot = GetActorRotation();
   FRotator LaserRot (VerticalAngle, HorizontalAngle, 0);  // float InPitch, float InYaw, float InRoll
-  FRotator ResultRot = UKismetMathLibrary::ComposeRotators(
-    LaserRot,
-    LidarBodyRot
-  );
+  FRotator ResultRot = UKismetMathLibrary::ComposeRotators(LaserRot, LidarBodyRot);
   const auto Range = Description->Range;
   FVector EndTrace = Range * UKismetMathLibrary::GetForwardVector(ResultRot) + LidarBodyLoc;
 
@@ -144,7 +159,7 @@ bool ALidar::ShootLaser(const uint32 Channel, const float HorizontalAngle, FVect
 
   if (HitInfo.bBlockingHit)
   {
-    if (Description->ShowDebugPoints)
+    if (drawRays) //Description->ShowDebugPoints)
     {
       DrawDebugPoint(
         GetWorld(),
@@ -157,11 +172,7 @@ bool ALidar::ShootLaser(const uint32 Channel, const float HorizontalAngle, FVect
     }
 
     XYZ = LidarBodyLoc - HitInfo.ImpactPoint;
-    XYZ = UKismetMathLibrary::RotateAngleAxis(
-      XYZ,
-      - LidarBodyRot.Yaw + 90,
-      FVector(0, 0, 1)
-    );
+    XYZ = UKismetMathLibrary::RotateAngleAxis(XYZ, - LidarBodyRot.Yaw + 90, FVector(0, 0, 1));
 
     return true;
   } else {
