@@ -25,7 +25,7 @@ void ALidar::BeginPlay()
 
   if (writeTestFile)
   {
-    std::string url = std::string(TCHAR_TO_UTF8(*FPaths::ProjectDir())) + "/points.xyz";
+    std::string url = std::string(TCHAR_TO_UTF8(*FPaths::ProjectDir())) + "/points.asc";
     pointsFile.open(url);
   }
 }
